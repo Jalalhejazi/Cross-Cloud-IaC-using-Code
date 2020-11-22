@@ -22,7 +22,7 @@ jobs:
       workingDir: 'infra'  
     displayName: 'NPM install packages'
   
-  - task: Pulumi@0
+  - task: Pulumi@1
     inputs:
       azureSubscription: $(AZURE)
       command: 'up'
