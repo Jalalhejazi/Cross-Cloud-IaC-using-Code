@@ -1,7 +1,13 @@
+
+
 jobs:
 - job: infrastructure
   pool:
     vmImage: 'ubuntu-16.04'
+
+  variables:
+    AZURE: 'MSDN_950_kr'
+
   steps:
   - task: DotNetCoreCLI@2
     inputs:
@@ -17,7 +23,7 @@ jobs:
     displayName: 'NPM install packages'
   - task: Pulumi@0
     inputs:
-      azureSubscription: 'Your Azure Subscription(aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee)'
+      azureSubscription: $(AZURE)
       command: 'up'
       args: '--yes'
       cwd: 'infra'
