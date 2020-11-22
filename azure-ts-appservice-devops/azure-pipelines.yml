@@ -21,6 +21,7 @@ jobs:
       command: 'install'
       workingDir: 'infra'  
     displayName: 'NPM install packages'
+  
   - task: Pulumi@0
     inputs:
       azureSubscription: $(AZURE)
